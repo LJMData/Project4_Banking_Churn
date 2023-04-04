@@ -16,3 +16,11 @@ This Jupyter Notebook is an example of data preprocessing techniques that can be
 - Create a scaler object
 - Fit the scaler to the selected columns
 - Transform the selected columns using the scaler
+
+
+
+
+Define What Churn is 
+
+
+
