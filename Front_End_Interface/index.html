@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Churn Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      #result {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>The Royal Bank of Eduardo</h1>
+      <h2>Churn Checker</h2>
+      <button onclick="location.reload()">New Customer</button>
+    </header>
+    <section class="instructions">
+      <p>Please enter the following information:</p>
+      <p>Note: All fields are required.</p>
+      <form id="churn-form">
+        <label for="Age">Age:</label>
+        <input type="number" name="Age" id="Age" min="1" required>
+        <br>
+
+        <label for="CreditScore">Credit Score:</label>
+        <input type="number" name="CreditScore" id="CreditScore" required>
+        <br>
+
+        <label for="Tenure">Tenure:</label>
+        <input type="number" name="Tenure" id="Tenure" required>
+        <br>
+
+        <label for="Balance">Balance:</label>
+        <input type="number" name="Balance" id="Balance" step="0.01" required>
+        <br>
+
+        <label for="NumofProducts">Number of Products:</label>
+        <input type="number" name="NumofProducts" id="NumofProducts" min="1" required>
+        <br>
+
+        <label for="HasCrCard">Has Credit Card:</label>
+        <select name="HasCrCard" id="HasCrCard" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <br>
+
+        <label for="IsActiveMember">Is Active Member:</label>
+        <select name="IsActiveMember" id="IsActiveMember" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <br>
+
+        <label for="EstimatedSalary">Estimated Salary:</label>
+        <input type="number" name="EstimatedSalary" id="EstimatedSalary" step="0.01" required>
+        <br>
+
+        <input type="submit" value="Check Churn">
+      </form>
+         
+    </section>
+    <section id="result">
+      <!-- Churn result will be displayed here -->
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const form = document.querySelector('#churn-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const inputData = {};
+            for (let [key, value] of formData.entries()) {
+                inputData[key] = value;
+            }
+            console.log('Form data:', inputData);
+            $.ajax({
+            type: "POST",
+            url: "http://localhost:5000/check_churn",
+            data: JSON.stringify(inputData),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(result) {
+                console.log('Server response:', result);
+                $("#result").html("<p>Predicted churn probability: " + result.churn_probability + "</p>");
+            },
+            error: function(error) {
+                console.error(error);
+                alert('An error occurred. Please try again later.');
+            }
+        });
+     });
+    </script>
+  </body>
+</html>
