@@ -62,6 +62,6 @@ The result is retured as either Churned or Not Churned
 ![Churn](https://github.com/LJMData/Project4_Banking_Churn/blob/main/ScreenShots/Churn.png)
 
 #### Not Churned Example 
-![Not_churn] (https://github.com/LJMData/Project4_Banking_Churn/blob/main/ScreenShots/No_Churn.png)
+![Not_churn](https://github.com/LJMData/Project4_Banking_Churn/blob/main/ScreenShots/No_Churn.png)
 
 
