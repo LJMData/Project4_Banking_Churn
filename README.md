@@ -46,8 +46,40 @@ This model was then used to make predictions and evaluted.
 
 ![DTC_Example](https://github.com/LJMData/Project4_Banking_Churn/blob/main/ScreenShots/Descision_tree_example.png)
 
-
 The confusion matrix shows that the model predicted 1388 true negatives and 206 true positives, but misclassified 219 false negatives and 187 false positives. The classification report shows that the model has an accuracy of 79.70%, precision of 0.48, recall of 0.52, and f1-score of 0.50 for predicting churn customers. The weighted average precision, recall, and f1-score are all around 0.80, which indicates that the model is decent at predicting both churn and non-churn customers.
+
+The Hyperparameters were then tuned with the help of GridSearchCV
+
+``` ruby
+from sklearn.model_selection import GridSearchCV
+
+# Define the hyperparameters to tune
+param_grid = {'max_depth': [3, 4, 5, 6, 7],
+              'min_samples_split': [2, 4, 6, 8, 10],
+              'min_samples_leaf': [1, 2, 3, 4, 5],
+              'max_features': [2, 3, 4, 5, 6]}
+
+# Create the grid search object
+grid_search = GridSearchCV(estimator=DecisionTreeClassifier(random_state=42),
+                           param_grid=param_grid,
+                           scoring='accuracy',
+                           cv=5,
+                           n_jobs=-1)
+
+# Fit the grid search object to the training data
+grid_search.fit(X_train, y_train)
+
+# Print the best hyperparameters
+print("Best hyperparameters: ", grid_search.best_params_)
+```
+After performing a grid search for the best hyperparameters, we found that the optimal values were:
+
+max_depth: 5
+max_features: 6
+min_samples_leaf: 1
+min_samples_split: 6
+
+These hyperparameters improved the accuracy of our model to 85%. The confusion matrix showed The confusion matrix shows that there were 1559 true negatives, 48 false positives, 234 false negatives, and 159 true positives, which is also an improvement on the previous model, as were the following scores The accuracy of the model is 0.86 on a dataset of 2000 samples. The macro average precision is 0.82, recall is 0.69, f1-score is 0.72. 
 
 ### KNN
 

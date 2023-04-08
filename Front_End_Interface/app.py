@@ -10,7 +10,7 @@ def predict_churn(Age, CreditScore, Tenure, Balance, NumofProducts, HasCrCard, I
     input_data = [[Age, CreditScore, Tenure, Balance, NumofProducts, HasCrCard, IsActiveMember, EstimatedSalary]]
 
     # load decision tree from file
-    with open('dtc_modelNS.pkl', 'rb') as file:
+    with open('dtc_modelNSHP.pkl', 'rb') as file:
         tree = pickle.load(file)
 
     # use predict method to get predicted probability
