@@ -1,0 +1,95 @@
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #283747;
+    color: #fff;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  #new-customer-btn {
+    background-color: #07a332;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Main Styles */
+  main {
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* Input Styles */
+  input {
+    display: block;
+    margin-bottom: 20px;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* Button Styles */
+  button {
+    background-color: #07a332;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  button:hover {
+    background-color: #05b82f;
+  }
+  
+  /* Result Styles */
+  .result {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: #07a332;
+  }
+  
+  .result h2 {
+    margin-top: 0;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Reenie Beanie', cursive;
+  }
+  
+  .result.success {
+    color: #05b82f;
+  }
+  
+  .result.failure {
+    color: red;
+  }
+  
+  /* Banner Styles */
+  .banner {
+    background-color: #07a332;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+  
