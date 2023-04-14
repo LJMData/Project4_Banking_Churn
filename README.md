@@ -32,35 +32,60 @@ Split and train the data with sklearn.model_selection train_test_split, use logi
 
 ![Train](https://user-images.githubusercontent.com/115945473/232016546-2d40d1cf-bcf2-4875-a875-b0c1264e1e8b.jpg)
 
+
 ![FitLM](https://user-images.githubusercontent.com/115945473/232016647-d2f3be39-11f0-4da8-b122-53c5909e95e0.jpg)
 
+
 Traing Data Scores
+
 ![TrainingDataScore](https://user-images.githubusercontent.com/115945473/232017815-d9599f82-3b6e-42b4-a6d7-1578c2c323e1.jpg)
 
 
 Predict outcome of dataset show Accuracy Score of the model
+
 ![ModelAccuracyScore](https://user-images.githubusercontent.com/115945473/232019001-7cc6936e-411b-4ecd-88f9-2e4e470318e5.jpg)
 
-
-Confusion Matrix
-![ConfusionMatix1](https://user-images.githubusercontent.com/115945473/232024064-8f28be3c-0e15-4de2-b807-4f7568406c54.jpg)
+Confusion Matrix![ConfusionMatix1](https://user-images.githubusercontent.com/115945473/232024064-8f28be3c-0e15-4de2-b807-4f7568406c54.jpg)
 
 
 Clasification Report
+
 ![ClassificationReport](https://user-images.githubusercontent.com/115945473/232024528-1d04e5ca-f7a1-4dc9-98f5-483620d10b10.jpg)
 
 
 Use the LogisticRegression classifier and the resampled data to fit the model and make predictions
+
 ![Resample](https://user-images.githubusercontent.com/115945473/232026655-67e74836-8404-41bd-8b04-bd0b1c362031.jpg)
 
 
 Confusion Matrix with oversample data
+
 ![ResampleDataConfusionMatrix](https://user-images.githubusercontent.com/115945473/232027366-713e44f2-d890-45c1-a285-30b30d6b36ea.jpg)
 
 
-Clasification Report with resampled data
+ Clasification Report with resampled data
+
 ![ClassificationReport2](https://user-images.githubusercontent.com/115945473/232028052-8810966f-0c16-4132-b93b-ae531b8f19a8.jpg)
 
+
+![image](https://user-images.githubusercontent.com/115945473/232029062-b61df275-24dc-4fb5-8f87-7746eb71d5cc.png)
+
+![blob2](https://user-images.githubusercontent.com/115945473/232030551-31d856a4-1624-4131-b63a-503088539ebc.jpg)
+
+Fit the model by using the grid search classifier and this will take the LogisticRegression model and try 
+each combination of parameters. Score the hypertuned model on the test dataset
+
+
+![image](https://user-images.githubusercontent.com/115945473/232031582-a656a364-60bb-4d37-b57b-c10eeef5f88d.png)
+
+
+Create the RandomizedSearch estimator along with a parameter object containing the values to adjust
+
+Fit the model by using the randomized search estimator and this will take the LogisticRegression model and 
+try a random sample of combinations of parameters
+
+
+![FinalResults2](https://user-images.githubusercontent.com/115945473/232034811-03c97596-f2cf-4138-862b-abe393ef60ab.jpg)
 
 
 ### Random Tree
