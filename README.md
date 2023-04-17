@@ -45,7 +45,11 @@ Predict outcome of dataset show Accuracy Score of the model
 
 ![ModelAccuracyScore](https://user-images.githubusercontent.com/115945473/232019001-7cc6936e-411b-4ecd-88f9-2e4e470318e5.jpg)
 
-Confusion Matrix![ConfusionMatix1](https://user-images.githubusercontent.com/115945473/232024064-8f28be3c-0e15-4de2-b807-4f7568406c54.jpg)
+
+Confusion Matrix
+
+![ConfusionMatix1](https://user-images.githubusercontent.com/115945473/232024064-8f28be3c-0e15-4de2-b807-4f7568406c54.jpg)
+
 
 
 Clasification Report
@@ -77,14 +81,25 @@ This test is ran on unresampled data.
 
 ![image](https://user-images.githubusercontent.com/115945473/232029062-b61df275-24dc-4fb5-8f87-7746eb71d5cc.png)
 
-![blob2](https://user-images.githubusercontent.com/115945473/232030551-31d856a4-1624-4131-b63a-503088539ebc.jpg)
+![Blob2](https://user-images.githubusercontent.com/115945473/232433412-73ad8a48-2589-42fe-aef0-b5d6952899a7.jpg)
 
-Fit the model by using the grid search classifier and this will take the LogisticRegression model and try 
-each combination of parameters. Score the hypertuned model on the test dataset
+Simply put, hyperparameters allows you to customize how algorithms behave to a specific 
+dataset. 
+● Different from parameters, hyperparameters are specified by you and not by an internally learning 
+algorithm. 
+● Picking the best hyperparameters for a model can be difficult, therefore we use random or grid 
+search strategies for optimal values. 
 
+Used Grid search 
+
+Grid search is a brute-force search paradigm approach where we specify a list of values for different 
+hyperparameters, and the computer will evaluate the model performance for each 
+combination of those to obtain the optimal set. Fit the model by using the grid search classifier and this 
+will take the LogisticRegression model and try each combination of parameters. Score the hypertuned model on the test dataset
 
 ![image](https://user-images.githubusercontent.com/115945473/232031582-a656a364-60bb-4d37-b57b-c10eeef5f88d.png)
 
+RandomizedSearch estimator
 
 Create the RandomizedSearch estimator along with a parameter object containing the values to adjust
 
