@@ -85,8 +85,10 @@ This test is ran on unresampled data.
 
 Simply put, hyperparameters allows you to customize how algorithms behave to a specific 
 dataset. 
+
 ● Different from parameters, hyperparameters are specified by you and not by an internally learning 
-algorithm. 
+algorithm.
+
 ● Picking the best hyperparameters for a model can be difficult, therefore we use random or grid 
 search strategies for optimal values. 
 
