@@ -194,7 +194,8 @@ The precision for class 0 is 0.84, which means that when the model predicts clas
 For class 1, the precision is 0.60 and the recall is 0.31. This means that when the model predicts class 1, it is correct 60% of the time, and it correctly identified 31% of all the actual class 1 samples.
 
 
-### Final Model Selection 
+### Final Model Selection
+After performing hyperparameter tuning on four different classification algorithms, namely Logistic Regression, KNN, Decision Tree, and Random Forest, we obtained the final accuracy scores of 81%, 84%, 85.9%, and 86.1%, respectively. Interestingly, all of the datasets showed higher recall for class 1 than class 0, which suggests that the models were better at identifying the positive instances. Among the four algorithms, Random Forest yielded the highest accuracy score and also had the best recall for the Churn class. Therefore, based on our experimental results, we can conclude that Random Forest outperformed the other three algorithms in terms of accuracy and recall.
 
 ## Part 3: Creating a Front End Interface 
 This code includes a Flask web application that accepts input from a user to check if a customer is likely to churn. The user inputs customer information such as age, credit score, tenure, balance, number of products, has credit card, is active member, and estimated salary. The information is sent to the server as a JSON object where it is then processed by the predict_churn function. The predict_churn function uses a decision tree model that has been loaded from a saved file to predict whether the customer is likely to churn or not. The result is returned as a JSON object and displayed in the web application. If an error occurs, it is handled gracefully and returned to the user. The web application is created using Flask and uses the Flask-CORS extension to handle cross-origin resource sharing. 
