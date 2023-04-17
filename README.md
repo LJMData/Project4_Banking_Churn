@@ -185,7 +185,14 @@ The next step is to transform the training and testing sets to include only the 
 
 Finally, a for loop can be used to train a KNN classifier on the transformed training set and predict the labels of the transformed testing set for k values ranging from 1 to 20, and the accuracy scores can be stored in an array called mean_acc2. 
 
+![image](https://user-images.githubusercontent.com/115428292/232581225-4f305665-0c49-44bb-9a36-b76465345fc5.png)
+
 Overall, these steps can help in analyzing the data and selecting the best features for training the model, which can lead to better accuracy and predictions.
+
+The precision for class 0 is 0.84, which means that when the model predicts class 0, it is correct 84% of the time. The recall for class 0 is 0.95, which means that the model correctly identified 95% of all the actual class 0 samples.
+
+For class 1, the precision is 0.60 and the recall is 0.31. This means that when the model predicts class 1, it is correct 60% of the time, and it correctly identified 31% of all the actual class 1 samples.
+
 
 ### Final Model Selection 
 
