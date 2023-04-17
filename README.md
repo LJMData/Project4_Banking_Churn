@@ -67,7 +67,7 @@ Confusion Matrix with oversample data
 
 ![ClassificationReport2](https://user-images.githubusercontent.com/115945473/232028052-8810966f-0c16-4132-b93b-ae531b8f19a8.jpg)
 
-This test is ran on unsampled data.
+This test is ran on unresampled data.
 
 ![image](https://user-images.githubusercontent.com/115945473/232029062-b61df275-24dc-4fb5-8f87-7746eb71d5cc.png)
 
