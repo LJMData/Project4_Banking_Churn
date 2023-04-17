@@ -7,7 +7,7 @@ A bank is looking to reduce customer churn by implementing a churn predictor too
 
 
 ## Part 1 : Data Preprocessing
-This Jupyter Notebook is an example of data preprocessing techniques that can be used to prepare data for predictive modeling. It uses a dataset obtained from Kaggle that contains information about bank customers and their churn rates. The dataset can be downloaded from the following link: https://www.kaggle.com/datasets/adammaus/predicting-churn-for-bank-customers
+This Jupyter Notebook is an example of data preprocessing techniques that can be used to prepare data for predictive modeling. It uses a dataset obtained from Kaggle that contains information about bank customers and their churn rates. The dataset can be downloaded from the following link: https://www.kaggle.com/datasets/adammaus/predicting-churn-for-bank-customers. This Dataset used a sample of 10,000 records. 
 
 - Read in the CSV file using pandas
 - Drop any missing values from the dataset
@@ -18,13 +18,16 @@ This Jupyter Notebook is an example of data preprocessing techniques that can be
 - Fit the scaler to the selected columns
 - Transform the selected columns using the scaler
 
+An example of the final data is below 
+
+![Scaled_Data](https://user-images.githubusercontent.com/115428292/232575849-1e599b98-e9e5-47f4-ae3f-b9e668f706a2.png)
+
+
 ## Part 2: Model Selection 
 
 ### Logistic Regression
 
-
-Used a sample of 10,000 records
-Dropped "Exited", "CustomerId","NumOfProducts" columns 
+Dropped "Exited" and "CustomerId" columns 
 
 ![Drop](https://user-images.githubusercontent.com/115945473/232009937-cc165907-3023-4d7a-a283-9d460f22018a.jpg) 
 
@@ -45,7 +48,11 @@ Predict outcome of dataset show Accuracy Score of the model
 
 ![ModelAccuracyScore](https://user-images.githubusercontent.com/115945473/232019001-7cc6936e-411b-4ecd-88f9-2e4e470318e5.jpg)
 
-Confusion Matrix![ConfusionMatix1](https://user-images.githubusercontent.com/115945473/232024064-8f28be3c-0e15-4de2-b807-4f7568406c54.jpg)
+
+Confusion Matrix
+
+![ConfusionMatix1](https://user-images.githubusercontent.com/115945473/232024064-8f28be3c-0e15-4de2-b807-4f7568406c54.jpg)
+
 
 
 Clasification Report
@@ -63,32 +70,53 @@ Confusion Matrix with oversample data
 ![ResampleDataConfusionMatrix](https://user-images.githubusercontent.com/115945473/232027366-713e44f2-d890-45c1-a285-30b30d6b36ea.jpg)
 
 
+ Use moduleRandomOverSampler from the imbalanced-learn library to resample the data 
+ 
+![balanceingData](https://user-images.githubusercontent.com/115945473/232430271-c436d404-9536-444f-9e86-75fbec2a9812.jpg)
+
+ 
+ 
  Clasification Report with resampled data
 
 ![ClassificationReport2](https://user-images.githubusercontent.com/115945473/232028052-8810966f-0c16-4132-b93b-ae531b8f19a8.jpg)
 
+Simply put, hyperparameters allows you to customize how algorithms behave to a specific 
+dataset. 
 
-![image](https://user-images.githubusercontent.com/115945473/232029062-b61df275-24dc-4fb5-8f87-7746eb71d5cc.png)
+- Different from parameters, hyperparameters are specified by you and not by an internally learning algorithm.
 
-![blob2](https://user-images.githubusercontent.com/115945473/232030551-31d856a4-1624-4131-b63a-503088539ebc.jpg)
+- Picking the best hyperparameters for a model can be difficult, therefore we use random or grid search strategies for optimal values. 
 
-Fit the model by using the grid search classifier and this will take the LogisticRegression model and try 
-each combination of parameters. Score the hypertuned model on the test dataset
-
+Used Grid search 
+Grid search is a brute-force search paradigm approach where we specify a list of values for different 
+hyperparameters, and the computer will evaluate the model performance for each 
+combination of those to obtain the optimal set. Fit the model by using the grid search classifier and this 
+will take the LogisticRegression model and try each combination of parameters. Score the hypertuned model on the test dataset
 
 ![image](https://user-images.githubusercontent.com/115945473/232031582-a656a364-60bb-4d37-b57b-c10eeef5f88d.png)
 
+### Random Forest
+This script uses the Random Forest Classifier and GridSearchCV to optimize hyperparameters to classify customer churn. 
 
-Create the RandomizedSearch estimator along with a parameter object containing the values to adjust
+It first imports the necessary libraries and loads the processed dataset. 
 
-Fit the model by using the randomized search estimator and this will take the LogisticRegression model and 
-try a random sample of combinations of parameters
+It then splits the data into training and testing sets and creates a Random Forest Classifier with 100 estimators. It then fits the model and generates predictions, creates a confusion matrix, and calculates the accuracy score. 
 
+![RandomForrest](https://user-images.githubusercontent.com/115428292/232575926-e5a6fa6e-ea9c-4783-8044-388da9375e47.png)
 
-![FinalResults2](https://user-images.githubusercontent.com/115945473/232034811-03c97596-f2cf-4138-862b-abe393ef60ab.jpg)
+It visualizes the confusion matrix using Seaborn heatmap and creates a bar chart of the top 10 most important features. 
 
+It then uses GridSearchCV to find the optimal hyperparameters and extracts the best decision forest. 
 
-### Random Tree
+It creates a confusion matrix and calculates the accuracy score for this model.
+
+In this case, there are 2,284 instances that were actually in class 0 and were correctly predicted as such, while 70 instances were actually in class 0 but were predicted as class 1. Similarly, 295 instances were actually in class 1 and were correctly predicted as such, while 351 instances were actually in class 1 but were predicted as class 0.
+
+The accuracy score of the model is 0.861, meaning that the model correctly predicted the class of 86.1% of instances.
+
+The classification report provides further evaluation metrics for the model. Precision, recall, and F1-score are provided for both classes, as well as their support. Precision measures how often the model correctly predicts the positive class (class 1), while recall measures how often the model correctly identifies actual positive instances. F1-score is a combination of precision and recall, with higher values indicating better performance.
+
+Overall, the model performed well at identifying instances in class 0, with high precision and recall values. However, the model struggled to identify instances in class 1, with lower precision and recall values, indicating potential areas for improvement.
 
 ### Descision Tree
 The Data was loaded into a Jupyter Notebook and the variables were identified 
@@ -148,8 +176,26 @@ min_samples_split: 6
 These hyperparameters improved the accuracy of our model to 85%. The confusion matrix showed The confusion matrix shows that there were 1559 true negatives, 48 false positives, 234 false negatives, and 159 true positives, which is also an improvement on the previous model, as were the following scores The accuracy of the model is 0.86 on a dataset of 2000 samples. The macro average precision is 0.82, recall is 0.69, f1-score is 0.72. 
 
 ### KNN
+To begin with, the first step is to split the data into training and testing sets using the train_test_split() function. 
 
-### Final Model Selection 
+Next, a list of predictor columns needs to be defined and stored in a variable called predictors. To select the two best features based on their f-test scores, the SelectKBest() method from scikit-learn can be used, and the result can be stored in a variable called ft. 
+
+The log of the p-values of the f-scores for each feature can be plotted using a barplot. 
+The next step is to transform the training and testing sets to include only the two best features using the transform() method of the SelectKBest object. 
+
+Finally, a for loop can be used to train a KNN classifier on the transformed training set and predict the labels of the transformed testing set for k values ranging from 1 to 20, and the accuracy scores can be stored in an array called mean_acc2. 
+
+![image](https://user-images.githubusercontent.com/115428292/232581225-4f305665-0c49-44bb-9a36-b76465345fc5.png)
+
+Overall, these steps can help in analyzing the data and selecting the best features for training the model, which can lead to better accuracy and predictions.
+
+The precision for class 0 is 0.84, which means that when the model predicts class 0, it is correct 84% of the time. The recall for class 0 is 0.95, which means that the model correctly identified 95% of all the actual class 0 samples.
+
+For class 1, the precision is 0.60 and the recall is 0.31. This means that when the model predicts class 1, it is correct 60% of the time, and it correctly identified 31% of all the actual class 1 samples.
+
+
+### Final Model Selection
+After performing hyperparameter tuning on four different classification algorithms, namely Logistic Regression, KNN, Decision Tree, and Random Forest, we obtained the final accuracy scores of 81%, 84%, 85.9%, and 86.1%, respectively. Interestingly, all of the datasets showed higher recall for class 1 than class 0, which suggests that the models were better at identifying the positive instances. Among the four algorithms, Random Forest yielded the highest accuracy score and also had the best recall for the Churn class. Therefore, based on our experimental results, we can conclude that Random Forest outperformed the other three algorithms in terms of accuracy and recall.
 
 ## Part 3: Creating a Front End Interface 
 This code includes a Flask web application that accepts input from a user to check if a customer is likely to churn. The user inputs customer information such as age, credit score, tenure, balance, number of products, has credit card, is active member, and estimated salary. The information is sent to the server as a JSON object where it is then processed by the predict_churn function. The predict_churn function uses a decision tree model that has been loaded from a saved file to predict whether the customer is likely to churn or not. The result is returned as a JSON object and displayed in the web application. If an error occurs, it is handled gracefully and returned to the user. The web application is created using Flask and uses the Flask-CORS extension to handle cross-origin resource sharing. 
