@@ -7,7 +7,7 @@ A bank is looking to reduce customer churn by implementing a churn predictor too
 
 
 ## Part 1 : Data Preprocessing
-This Jupyter Notebook is an example of data preprocessing techniques that can be used to prepare data for predictive modeling. It uses a dataset obtained from Kaggle that contains information about bank customers and their churn rates. The dataset can be downloaded from the following link: https://www.kaggle.com/datasets/adammaus/predicting-churn-for-bank-customers
+This Jupyter Notebook is an example of data preprocessing techniques that can be used to prepare data for predictive modeling. It uses a dataset obtained from Kaggle that contains information about bank customers and their churn rates. The dataset can be downloaded from the following link: https://www.kaggle.com/datasets/adammaus/predicting-churn-for-bank-customers. This Dataset used a sample of 10,000 records. 
 
 - Read in the CSV file using pandas
 - Drop any missing values from the dataset
@@ -22,8 +22,6 @@ This Jupyter Notebook is an example of data preprocessing techniques that can be
 
 ### Logistic Regression
 
-
-Used a sample of 10,000 records
 Dropped "Exited", "CustomerId","NumOfProducts" columns 
 
 ![Drop](https://user-images.githubusercontent.com/115945473/232009937-cc165907-3023-4d7a-a283-9d460f22018a.jpg) 
@@ -77,23 +75,14 @@ Confusion Matrix with oversample data
 
 ![ClassificationReport2](https://user-images.githubusercontent.com/115945473/232028052-8810966f-0c16-4132-b93b-ae531b8f19a8.jpg)
 
-This test is ran on unresampled data.
-
-![image](https://user-images.githubusercontent.com/115945473/232029062-b61df275-24dc-4fb5-8f87-7746eb71d5cc.png)
-
-![Blob2](https://user-images.githubusercontent.com/115945473/232433412-73ad8a48-2589-42fe-aef0-b5d6952899a7.jpg)
-
 Simply put, hyperparameters allows you to customize how algorithms behave to a specific 
 dataset. 
 
-● Different from parameters, hyperparameters are specified by you and not by an internally learning 
-algorithm.
+- Different from parameters, hyperparameters are specified by you and not by an internally learning algorithm.
 
-● Picking the best hyperparameters for a model can be difficult, therefore we use random or grid 
-search strategies for optimal values. 
+- Picking the best hyperparameters for a model can be difficult, therefore we use random or grid search strategies for optimal values. 
 
 Used Grid search 
-
 Grid search is a brute-force search paradigm approach where we specify a list of values for different 
 hyperparameters, and the computer will evaluate the model performance for each 
 combination of those to obtain the optimal set. Fit the model by using the grid search classifier and this 
@@ -101,20 +90,18 @@ will take the LogisticRegression model and try each combination of parameters. S
 
 ![image](https://user-images.githubusercontent.com/115945473/232031582-a656a364-60bb-4d37-b57b-c10eeef5f88d.png)
 
-RandomizedSearch estimator
+### Random Forest
+This script uses the Random Forest Classifier and GridSearchCV to optimize hyperparameters to classify customer churn. 
 
-Create the RandomizedSearch estimator along with a parameter object containing the values to adjust
+It first imports the necessary libraries and loads the processed dataset. 
 
-Fit the model by using the randomized search estimator and this will take the LogisticRegression model and 
-try a random sample of combinations of parameters
+It then splits the data into training and testing sets and creates a Random Forest Classifier with 100 estimators. It then fits the model and generates predictions, creates a confusion matrix, and calculates the accuracy score. 
 
+It visualizes the confusion matrix using Seaborn heatmap and creates a bar chart of the top 10 most important features. 
 
-![FinalResults2](https://user-images.githubusercontent.com/115945473/232034811-03c97596-f2cf-4138-862b-abe393ef60ab.jpg)
+It then uses GridSearchCV to find the optimal hyperparameters and extracts the best decision forest. 
 
-
-
-
-### Random Tree
+It creates a confusion matrix and calculates the accuracy score for this model.
 
 ### Descision Tree
 The Data was loaded into a Jupyter Notebook and the variables were identified 
