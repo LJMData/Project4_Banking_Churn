@@ -18,11 +18,16 @@ This Jupyter Notebook is an example of data preprocessing techniques that can be
 - Fit the scaler to the selected columns
 - Transform the selected columns using the scaler
 
+An example of the final data is below 
+
+![Scaled_Data](https://user-images.githubusercontent.com/115428292/232575849-1e599b98-e9e5-47f4-ae3f-b9e668f706a2.png)
+
+
 ## Part 2: Model Selection 
 
 ### Logistic Regression
 
-Dropped "Exited", "CustomerId","NumOfProducts" columns 
+Dropped "Exited" and "CustomerId" columns 
 
 ![Drop](https://user-images.githubusercontent.com/115945473/232009937-cc165907-3023-4d7a-a283-9d460f22018a.jpg) 
 
@@ -97,11 +102,21 @@ It first imports the necessary libraries and loads the processed dataset.
 
 It then splits the data into training and testing sets and creates a Random Forest Classifier with 100 estimators. It then fits the model and generates predictions, creates a confusion matrix, and calculates the accuracy score. 
 
+![RandomForrest](https://user-images.githubusercontent.com/115428292/232575926-e5a6fa6e-ea9c-4783-8044-388da9375e47.png)
+
 It visualizes the confusion matrix using Seaborn heatmap and creates a bar chart of the top 10 most important features. 
 
 It then uses GridSearchCV to find the optimal hyperparameters and extracts the best decision forest. 
 
 It creates a confusion matrix and calculates the accuracy score for this model.
+
+In this case, there are 2,284 instances that were actually in class 0 and were correctly predicted as such, while 70 instances were actually in class 0 but were predicted as class 1. Similarly, 295 instances were actually in class 1 and were correctly predicted as such, while 351 instances were actually in class 1 but were predicted as class 0.
+
+The accuracy score of the model is 0.861, meaning that the model correctly predicted the class of 86.1% of instances.
+
+The classification report provides further evaluation metrics for the model. Precision, recall, and F1-score are provided for both classes, as well as their support. Precision measures how often the model correctly predicts the positive class (class 1), while recall measures how often the model correctly identifies actual positive instances. F1-score is a combination of precision and recall, with higher values indicating better performance.
+
+Overall, the model performed well at identifying instances in class 0, with high precision and recall values. However, the model struggled to identify instances in class 1, with lower precision and recall values, indicating potential areas for improvement.
 
 ### Descision Tree
 The Data was loaded into a Jupyter Notebook and the variables were identified 
