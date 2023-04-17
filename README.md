@@ -176,6 +176,16 @@ min_samples_split: 6
 These hyperparameters improved the accuracy of our model to 85%. The confusion matrix showed The confusion matrix shows that there were 1559 true negatives, 48 false positives, 234 false negatives, and 159 true positives, which is also an improvement on the previous model, as were the following scores The accuracy of the model is 0.86 on a dataset of 2000 samples. The macro average precision is 0.82, recall is 0.69, f1-score is 0.72. 
 
 ### KNN
+To begin with, the first step is to split the data into training and testing sets using the train_test_split() function. 
+
+Next, a list of predictor columns needs to be defined and stored in a variable called predictors. To select the two best features based on their f-test scores, the SelectKBest() method from scikit-learn can be used, and the result can be stored in a variable called ft. 
+
+The log of the p-values of the f-scores for each feature can be plotted using a barplot. 
+The next step is to transform the training and testing sets to include only the two best features using the transform() method of the SelectKBest object. 
+
+Finally, a for loop can be used to train a KNN classifier on the transformed training set and predict the labels of the transformed testing set for k values ranging from 1 to 20, and the accuracy scores can be stored in an array called mean_acc2. 
+
+Overall, these steps can help in analyzing the data and selecting the best features for training the model, which can lead to better accuracy and predictions.
 
 ### Final Model Selection 
 
