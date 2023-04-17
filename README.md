@@ -63,6 +63,12 @@ Confusion Matrix with oversample data
 ![ResampleDataConfusionMatrix](https://user-images.githubusercontent.com/115945473/232027366-713e44f2-d890-45c1-a285-30b30d6b36ea.jpg)
 
 
+ Use modulRandomOverSampler from the imbalanced-learn library to resample the data 
+ 
+![balanceingData](https://user-images.githubusercontent.com/115945473/232430271-c436d404-9536-444f-9e86-75fbec2a9812.jpg)
+
+ 
+ 
  Clasification Report with resampled data
 
 ![ClassificationReport2](https://user-images.githubusercontent.com/115945473/232028052-8810966f-0c16-4132-b93b-ae531b8f19a8.jpg)
